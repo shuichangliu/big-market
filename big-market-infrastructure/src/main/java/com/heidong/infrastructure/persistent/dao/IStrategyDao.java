@@ -1,5 +1,6 @@
 package com.heidong.infrastructure.persistent.dao;
 
+import com.heidong.infrastructure.persistent.po.Strategy;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -13,5 +14,8 @@ import java.util.List;
  */
 @Mapper
 public interface IStrategyDao {
-    List<IStrategyDao> queryStrategyList();
+    //查询抽奖策略
+    List<Strategy> queryStrategyList();
+
+    Strategy queryStrategyByStrategyId(Long strategyId);
 }

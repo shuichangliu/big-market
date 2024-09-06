@@ -2,6 +2,7 @@ package com.heidong.test.infrastructure;
 
 import com.alibaba.fastjson.JSON;
 import com.heidong.infrastructure.persistent.dao.IAwardDao;
+import com.heidong.infrastructure.persistent.po.Award;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,7 +30,7 @@ public class AwardDaoTest {
 
     @Test
     public void test_queryAwardList() {
-        List<IAwardDao> awards = awardDao.queryAwardList();
+        List<Award> awards = awardDao.queryAwardList();
         log.info("测试结果:{}", JSON.toJSONString(awards));
     }
 

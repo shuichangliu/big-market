@@ -1,5 +1,6 @@
 package com.heidong.infrastructure.persistent.dao;
 
+import com.heidong.infrastructure.persistent.po.StrategyAward;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -13,5 +14,7 @@ import java.util.List;
  */
 @Mapper
 public interface IStrategyAwardDao {
-    List<IStrategyAwardDao> queryStrategyAwardList();
+    List<StrategyAward> queryStrategyAwardList();
+
+    List<StrategyAward> queryStrategyAwardListByStrategyId(Long strategyId);
 }
