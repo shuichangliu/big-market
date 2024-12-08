@@ -34,7 +34,10 @@ public class StrategyArmoryTest {
         log.info("测试结果：{}",success);
 
     }
-
+    @Test
+    public void test_getRandomAwardId() {
+        log.info("测试结果：{} - 奖品id值", strategyDispatch.getRandomAwardId(100001L));
+    }
     @Test
     public void test_getRandomAwardId_ruleWeightValue() {
         log.info("测试结果：{} - 4000 策略配置", strategyDispatch.getRandomAwardId(100001L, "4000:102,103,104,105"));

@@ -3,6 +3,7 @@ package com.heidong.infrastructure.persistent.repository;
 import com.heidong.domain.strategy.model.entity.StrategyAwardEntity;
 import com.heidong.domain.strategy.model.entity.StrategyEntity;
 import com.heidong.domain.strategy.model.entity.StrategyRuleEntity;
+import com.heidong.domain.strategy.model.vo.StrategyAwardRuleModelVO;
 import com.heidong.domain.strategy.repository.IStrategyRepository;
 import com.heidong.infrastructure.persistent.dao.IStrategyAwardDao;
 import com.heidong.infrastructure.persistent.dao.IStrategyDao;
@@ -56,6 +57,7 @@ public class StrategyRepository implements IStrategyRepository {
                     .awardRate(strategyAward.getAwardRate())
                     .build();
             strategyAwardEntities.add(strategyAwardEntity);
+
         }
         redisService.setValue(cacheKey, strategyAwardEntities);
         return strategyAwardEntities;
@@ -92,6 +94,15 @@ public class StrategyRepository implements IStrategyRepository {
         strategyRule.setAwardId(awardId);
         strategyRule.setRuleModel(ruleModel);
         return strategyRuleDao.queryStrategyRuleValue(strategyRule);
+    }
+
+    @Override
+    public StrategyAwardRuleModelVO queryStrategyAwardRuleModel(Long strategyId, Integer awardId) {
+        StrategyAward strategyAward = new StrategyAward();
+        strategyAward.setStrategyId(strategyId);
+        strategyAward.setAwardId(awardId);
+        String ruleModels = strategyAwardDao.queryStrategyAwardRuleModels(strategyAward);
+        return StrategyAwardRuleModelVO.builder().ruleModels(ruleModels).build();
     }
 
     @Override

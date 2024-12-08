@@ -3,6 +3,7 @@ package com.heidong.domain.strategy.repository;
 import com.heidong.domain.strategy.model.entity.StrategyAwardEntity;
 import com.heidong.domain.strategy.model.entity.StrategyEntity;
 import com.heidong.domain.strategy.model.entity.StrategyRuleEntity;
+import com.heidong.domain.strategy.model.vo.StrategyAwardRuleModelVO;
 
 import java.util.List;
 import java.util.Map;
@@ -30,4 +31,6 @@ public interface IStrategyRepository {
     int getRateRange(String key);
 
     String queryStrategyRuleValue(Long strategyId, Integer awardId, String ruleModel);
+
+    StrategyAwardRuleModelVO queryStrategyAwardRuleModel(Long strategyId, Integer awardId);
 }
